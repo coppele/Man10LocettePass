@@ -1,0 +1,47 @@
+name: Man10LockettePass
+version: @version@
+main: red.man10.man10lockettepass.Man10LockettePass
+api-version: 1.16
+authors: [ coppele ]
+description: ピポパします
+
+commands:
+  mlock:
+    description: ピポパを色々します
+    permission: mlockette.command.*
+    permission-message: "§6[mLockette]§c 権限がありません..."
+
+permissions:
+  mlockette.command.*:
+    default: true
+    children:
+      - mlockette.command.list
+      - mlockette.command.set
+  mlockette.command.op.*:
+    default: op
+    children:
+      - mlockette.command.list
+      - mlockette.command.set
+      - mlockette.command.get
+      - mlockette.command.reload
+      - mlockette.command.passmap.*
+  mlockette.command.passmap.*:
+    default: op
+    children:
+      - mlockette.command.passmap.create
+      - mlockette.command.passmap.delete
+      - mlockette.command.passmap.list
+  mlockette.command.set:
+    default: true
+  mlockette.command.get:
+    default: op
+  mlockette.command.list:
+    default: op
+  mlockette.command.reload:
+    default: op
+  mlockette.command.passmap.create:
+    default: op
+  mlockette.command.passmap.delete:
+    default: op
+  mlockette.command.passmap.list:
+    default: op
